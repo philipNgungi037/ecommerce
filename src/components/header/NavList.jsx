@@ -80,7 +80,7 @@ const NavList = () => {
                                     )}
                                     {nav.subnavs.map((subnav, subIndex) => (
                                         <li key={subIndex}>
-                                            <NavLink to={subnav.link} className="block py-1 px-2 hover:bg-bgColor ">
+                                            <NavLink to={subnav.link} className="block py-1 px-2 hover:bg-gray-200">
                                                 {subnav.name}
                                             </NavLink>
                                         </li>
@@ -91,7 +91,7 @@ const NavList = () => {
                                         (<li>
                                             <button
                                                 onClick={logout}
-                                                className="block w-full text-left text-dangerColor py-1 px-2 border border-dangerColor   rounded-sm hover:bg-bgColor "
+                                                className="block w-full text-left text-red-400 py-1 px-2 border border-red-400 rounded-sm hover:bg-gray-200"
                                             >
                                                 Logout
                                             </button>
