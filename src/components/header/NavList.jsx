@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import Navs from './NavData'
 import { NavLink } from 'react-router-dom';
-import { useAuth
- } from '../contexts/AuthContext';
+import {
+    useAuth
+} from '../contexts/AuthContext';
 const NavList = () => {
     // state to open/close toggle-menu
     const [isOpen, setIsOpen] = useState(false);
@@ -17,22 +18,22 @@ const NavList = () => {
         setIsOpen(!isOpen);
     };
 
-        // Toggle dropdown
+    // Toggle dropdown
     const toggleDropdown = () => {
         setDropdownOpen(!isDropdownOpen);
-        };
+    };
 
     // // Check user info on component mount
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'));
-    
+
         if (user && user.username) {
             setUsername(user.username); // Set the username if user is logged in
         } else {
             setUsername(null); // Clear username if not logged in
         }
     }, []);
-    
+
 
     // Get the updated NavData based on username state
     const navItems = Navs(username);
@@ -44,7 +45,7 @@ const NavList = () => {
 
                 {/* Access Navs data, then map over it displaying them in flex list, the second last item in the list is backgrounded as yellow */}
                 <ul className='flex justify-end gap-2 text-xs lg:text-sm '>
-                {navItems.map((nav, index) => (
+                    {navItems.map((nav, index) => (
                         <li
                             className={`nav-item ${index === navItems.length - 2 ? 'yellow-bg' : ''}`}
                             key={index}
@@ -64,24 +65,38 @@ const NavList = () => {
 
                             {/* Conditionally render dropdown when subnavs exist and dropdown is open */}
                             {nav.subnavs && isDropdownOpen && (
-                                <ul className='dropdown bg-white z-50 mt-4 shadow-lg rounded p-2 absolute'>
+                                <ul className='dropdown bg-white z-50 mt-4 shadow-md shadow-black  rounded p-2 absolute'>
+
+                                    {/* // add signin link in the dropdown if not logged in. */}
+                                    {!username && (
+                                        <li>
+                                            <NavLink
+                                                to="/signin"
+                                                className="block w-full text-left py-1 rounded-sm hover:bg-appColor bg-bgColor px-2"
+                                            >
+                                                Sign In
+                                            </NavLink>
+                                        </li>
+                                    )}
                                     {nav.subnavs.map((subnav, subIndex) => (
                                         <li key={subIndex}>
-                                            <NavLink to={subnav.link} className="block py-1 px-2 hover:bg-gray-200">
+                                            <NavLink to={subnav.link} className="block py-1 px-2 hover:bg-bgColor ">
                                                 {subnav.name}
                                             </NavLink>
                                         </li>
                                     ))}
 
                                     {/* Add Logout option */}
-                                    <li>
-                                        <button
-                                            onClick={logout}
-                                            className="block w-full text-left py-1 px-2 hover:bg-gray-200"
-                                        >
-                                            Logout
-                                        </button>
-                                    </li>
+                                    {username &&
+                                        (<li>
+                                            <button
+                                                onClick={logout}
+                                                className="block w-full text-left text-dangerColor py-1 px-2 border border-dangerColor   rounded-sm hover:bg-bgColor "
+                                            >
+                                                Logout
+                                            </button>
+                                        </li>
+                                    )}
                                 </ul>
                             )}
                         </li>
