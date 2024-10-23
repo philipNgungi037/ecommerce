@@ -104,8 +104,9 @@ const NavList = () => {
                 </ul>
             </nav>
 
-            {/* //menu-button */}
-            <div className="menu lg:hidden">
+            {/* //menu-button */} 
+            {/* this icon i am planning to use it in future, for now i preserve it. */}
+            <div className="menu hidden">
                 <button
                     onClick={toggleMenu}
                     className="menu-button text-xl hover:border hover:border-yellow-400 "
