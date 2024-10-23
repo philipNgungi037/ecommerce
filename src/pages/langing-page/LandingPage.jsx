@@ -11,7 +11,7 @@ import Header from '../../components/header/Header'
 
 const LandingPage = () => {
   return (
-    <div className='landing-page bg-gray-200 h-full flex flex-col gap-4 '>
+    <div className='landing-page bg-bgColor h-full flex flex-col gap-4 '>
       <Header/>
       <HeroSection />
       <AllCategories/>
