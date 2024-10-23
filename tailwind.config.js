@@ -40,6 +40,7 @@ module.exports = {
       colors: {
         appColor: "yellow", 
         bgColor: "#e5e7eb", 
+        dangerColor: '#ef4444',
       },
       /**Fonts  */
       fontFace: {
