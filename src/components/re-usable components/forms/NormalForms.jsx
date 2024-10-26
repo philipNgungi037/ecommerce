@@ -36,7 +36,7 @@ const NormalForms = ({ fields, onSubmit, buttonText, className, error }) => {
 
 
   return (
-    <form className={`w-full md:w-1/2 lg:w-full p-4  bordeborder-black  rounded-md ${className}`} onSubmit={handleSubmit}>
+    <form className={`w-full  p-4  border rounded-md shadow-xl ${className}`} onSubmit={handleSubmit}>
 
       {/* Map over fields array to render form inputs */}
       {fields.map((field) => (
@@ -50,7 +50,7 @@ const NormalForms = ({ fields, onSubmit, buttonText, className, error }) => {
             name={field.name}
             value={formData[field.name]}
             onChange={handleChange}
-            className="normal-forms-input w-full p-2 border-b border-yellow-400 bg-yellow-100  text-start "
+            className="normal-forms-input w-full p-2 border-b border-appColor bg-bgColor rounded-md  text-start "
           />
         </div>
       ))}
@@ -65,7 +65,7 @@ const NormalForms = ({ fields, onSubmit, buttonText, className, error }) => {
       {/* Submit button */}
       <button
         type="submit"
-        className="normal-forms-button w-full bg-yellow-400 p-2 rounded-md"
+        className="normal-forms-button w-full bg-appColor p-2 rounded-md"
       >
         {buttonText}
       </button>
