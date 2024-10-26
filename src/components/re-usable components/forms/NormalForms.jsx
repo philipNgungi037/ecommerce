@@ -36,7 +36,7 @@ const NormalForms = ({ fields, onSubmit, buttonText, className, error }) => {
 
 
   return (
-    <form className={`w-full  p-4  border rounded-md shadow-xl ${className}`} onSubmit={handleSubmit}>
+    <form className={`w-full  p-4 shadow-bgColor rounded-md shadow-md ${className}`} onSubmit={handleSubmit}>
 
       {/* Map over fields array to render form inputs */}
       {fields.map((field) => (
