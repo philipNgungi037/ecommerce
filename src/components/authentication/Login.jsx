@@ -8,7 +8,7 @@ const Login = ({ onSubmit }) => {
 
 
     return (
-        <div className="login-container bg-white w-1/2 rounded-md"> 
+        <div className="login-container p-2 md:p-4 bg-white w-1/2 rounded-md"> 
    
             {/* Reusing the NormalForms component for rendering the login form */}
             <NormalForms
@@ -24,7 +24,7 @@ const Login = ({ onSubmit }) => {
       </Link>
       <h2 className="p-2 mb-8 text-center">
         Are you new here?<a href="register">
-          {" "}<span className="text-yellow-400 hover:text-yellow-200">
+          {" "}<span className="text-appColor">
             Register
           </span>
         </a>
