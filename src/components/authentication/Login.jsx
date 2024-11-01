@@ -8,7 +8,7 @@ const Login = ({ onSubmit }) => {
 
 
     return (
-        <div className="login-container p-2 md:p-4 bg-white w-1/2 rounded-md"> 
+        <div className="login-container p-2 md:p-4 bg-white rounded-md"> 
    
             {/* Reusing the NormalForms component for rendering the login form */}
             <NormalForms
