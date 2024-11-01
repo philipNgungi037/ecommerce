@@ -6,7 +6,7 @@ import { registerFields } from '../re-usable components/forms/forms-data'; // Im
 const Register = ({ onSubmit }) => {
 
     return (
-        <div className='register mx-auto w-full xs:w-3/4 sm:w-1/2 bg-white rounded-none xs:rounded-md '>
+        <div className='register p-2 md:p-4 bg-white rounded-md '>
             {/* Reusing the NormalForms component for rendering the login form */}
             <NormalForms
                 fields={registerFields} // Passes register form fields imported from formFields.js
