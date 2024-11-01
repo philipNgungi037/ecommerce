@@ -15,18 +15,19 @@ const Signin = () => {
     login(formData);
   };
   return (
-    <div className='signin-page w-full h-auto bg-gray-200'>
+    <div className='signin-page w-full h-full bg-gray-200'>
       <div className='signin-logo'>
         <Logo />
         <h1 className='signin-title p-4 text-center'>
           Access your account
         </h1>
       </div>
-      <div className='signin-login-container flex justify-center items-center '>
+      <div className='signin-login-container flex justify-center items-center p-8 '>
         { loading ? (
         <div className="flex justify-center items-center">
           <ClipLoader color="#000" loading={true} size={35} /> {/* Render the ClipLoader component */}
         </div>
+        
       ) : (
         <Login onSubmit={handleSubmit} />
       )
