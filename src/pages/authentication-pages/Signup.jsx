@@ -14,12 +14,15 @@ const Signup = () => {
         signup(formData);
     };
     return (
-        <div className='signup-page  w-full h-full bg-gray-200 '>
+        <div className='signup-page w-full h-full bg-gray-200 '>
             <Logo />
             <h1 className='signin-title p-4 text-center'>
                 Create an Account
             </h1>
-            <Register onSubmit={handleSubmit} />
+            <div className='flex justify-center p-8'> 
+                <Register onSubmit={handleSubmit} />
+            </div>
+
 
             {/* Display success message if any */}
             {successMsg && (
