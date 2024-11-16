@@ -68,6 +68,13 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem("user", JSON.stringify(data.user)); // Store user in localStorage
     setUser(data.user); // Set user state
     console.log(`Welcome back ${data.user.username}!`);
+
+     // Role-based navigation
+     if (data.user.role === 'admin') {
+      navigate('/admin-dashboard');
+    } else {
+      navigate('/'); // Redirect to user dashboard or home for non-admins
+    }
   };
 
   const handleLoginError = (LoginError) => {
@@ -103,7 +110,6 @@ export const AuthProvider = ({ children }) => {
       })
       .then((data) => {
         handleLoginSuccess(data);
-        navigate("/"); // Redirect to profile after login
       })
       .catch((error) => handleLoginError(error))
       .finally(() => setLoading(false));
@@ -114,7 +120,8 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("jwt"); // Remove JWT from localStorage
     localStorage.removeItem("user"); // Remove user from localStorage
     setUser(null); // Clear user state
-    navigate("/signin"); // Redirect to sign-in page
+    navigate("/"); // Redirect to sign-in page
+    window.location.reload()
   };
 
   // Fetch user data with authentication token, this function am reserving it for future usage
