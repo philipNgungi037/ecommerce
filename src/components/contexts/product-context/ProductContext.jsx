@@ -1,11 +1,10 @@
-import React, { createContext, useContext } from 'react';
+import React, { createContext, useContext, useEffect, useState  } from 'react';
+import axios from 'axios';
 
 const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
    
-
-
     const TopOffers = products.filter(product => product.discount > 20);
     const TopPrice = products.reduce((prev, current) => (prev.price > current.price ? prev : current));
     const ElectronicsProducts = products.filter(product => product.category.title === 'Electronics');
