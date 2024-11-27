@@ -4,6 +4,12 @@ import axios from 'axios';
 const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
+    
+    // State variables for products and categories
+    const [products, setProducts] = useState([]);
+    const [categories, setCategories] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
    
     const TopOffers = products.filter(product => product.discount > 20);
     const TopPrice = products.reduce((prev, current) => (prev.price > current.price ? prev : current));
