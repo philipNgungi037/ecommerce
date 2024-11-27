@@ -1,5 +1,4 @@
 import React, { createContext, useContext } from 'react';
-import ProductsData from '../../landing-page/products/ProductsData';
 
 const ProductContext = createContext();
 
