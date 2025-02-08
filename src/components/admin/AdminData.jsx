@@ -1,6 +1,11 @@
 
 const AdminData = () => [
     {
+        id: '0',
+        name: 'dashboard',
+        link: 'dashboard'
+    },
+    {
         id: '1',
         name: 'products',
         link: 'products'
@@ -8,7 +13,7 @@ const AdminData = () => [
     {
         id: '2',
         name: 'customers',
-        link: 'users'
+        link: 'users-list'
     },
     {
         id: '3',
@@ -25,7 +30,6 @@ const AdminData = () => [
         name: 'settings',
         link: 'settings'
     }
-    
 ]
 
 export default AdminData
