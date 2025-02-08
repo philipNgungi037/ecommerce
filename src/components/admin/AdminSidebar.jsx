@@ -10,9 +10,9 @@ const AdminSidebar = () => {
 
   return (
     <div className="admin-sidebar-main left-0 w-1/2 sm:w-1/4 bg-slate-50">
-      {/* <Logo/>  */}
-      {/* <h1 className='text-left'>Admin Dashboard</h1> */}
-      <div className='admin-profile-main flex space-x-4   items-center p-4'>
+    
+    {/* this div contain the user/admin details different from bottom div/ul */}
+      <div className='admin-profile-main bg-white shadow-md flex space-x-4   items-center p-4'>
         {/* <Logo/> */}
 
         <div className='admin-profile-img rounded-full bg-appColor'>
@@ -30,6 +30,9 @@ const AdminSidebar = () => {
 
         </div>
       </div>
+      <>
+
+      {/* now this div contain the side..items like customers, sales..etc  */}
       <ul className='py-4'>
         {adminData.map((item) => {
           // Determine if the current link matches the location pathname
@@ -47,6 +50,7 @@ const AdminSidebar = () => {
           );
         })}
       </ul>
+      </>
     </div>
   );
 };
