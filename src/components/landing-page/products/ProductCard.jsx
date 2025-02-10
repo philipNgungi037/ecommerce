@@ -21,9 +21,9 @@ const ProductCard = ({ product, width, height }) => {
         <div className="details p-4 text-center">
           <h2 className='font-extrabold  '>{product.name}</h2>
           <p className='underline '><strong></strong> {product.category.title}</p>
-          <p className='text-sm'><strong> </strong> Ksh{roundPrice(product.discountedPrice)}</p>
-          <p className='line-through'><strong></strong> Ksh{roundPrice(product.price)}</p>
-          <p><strong></strong> {product.additionalParams}</p>
+          <p className='text-sm'><strong> </strong> Ksh{product.price}</p>
+          {/* <p className='line-through'><strong></strong> Ksh{roundPrice(product.price)}</p> */}
+          <p><strong></strong> {product.description}</p>
         </div>
       </div>
     </Link>
