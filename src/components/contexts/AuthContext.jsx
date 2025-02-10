@@ -74,6 +74,7 @@ export const AuthProvider = ({ children }) => {
       navigate('/admin-dashboard');
     } else {
       navigate('/'); // Redirect to user dashboard or home for non-admins
+      // window.reload()
     }
   };
 
