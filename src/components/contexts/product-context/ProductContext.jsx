@@ -10,6 +10,25 @@ export const ProductProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+     // Function to create a new category
+     const createCategory = async (newCategory) => {
+        try {
+            const token = localStorage.getItem('jwt'); // Ensure admin is authenticated
+            const response = await axios.post('http://localhost:3000/categories', newCategory, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            setCategories((prevCategories) => [...prevCategories, response.data]); // Update state
+            return { success: true, message: 'Category created successfully!' };
+        } catch (error) {
+            return { success: false, message: error.response?.data?.errors?.join(', ') || 'Failed to create category' };
+        }
+    };
+
+
     // Fetch products and categories from the API
     useEffect(() => {
         const fetchProductsAndCategories = async () => {
@@ -31,6 +50,7 @@ export const ProductProvider = ({ children }) => {
 
         fetchProductsAndCategories();
     }, []);
+    
 
     // Compute derived data
     const TopOffers = products.filter(product => product.discount > 20);
@@ -55,6 +75,7 @@ export const ProductProvider = ({ children }) => {
                 AffordableProducts,
                 loading,
                 error,
+                createCategory
             }}
         >
             {children}
