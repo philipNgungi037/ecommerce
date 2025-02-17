@@ -28,6 +28,24 @@ export const ProductProvider = ({ children }) => {
         }
     };
 
+     // Function to create a new product
+     const createProduct = async (newProduct) => {
+        try {
+            const token = localStorage.getItem('jwt');
+            const response = await axios.post('http://localhost:3000/products', newProduct, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            setProducts((prevProducts) => [...prevProducts, response.data]); 
+            return { success: true, message: 'Product created successfully!' };
+        } catch (error) {
+            return { success: false, message: error.response?.data?.errors?.join(', ') || 'Failed to create product' };
+        }
+    };
+
 
     // Fetch products and categories from the API
     useEffect(() => {
@@ -75,7 +93,8 @@ export const ProductProvider = ({ children }) => {
                 AffordableProducts,
                 loading,
                 error,
-                createCategory
+                createCategory,
+                createProduct
             }}
         >
             {children}
